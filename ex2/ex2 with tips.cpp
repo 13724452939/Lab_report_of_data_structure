@@ -16,12 +16,12 @@ int main()
 {
 	int length;
 	cout << "the length of sequence list is:";
-	cin >> length;//¶ÁÈ¡Ë³Ğò±í³¤¶È 
-	linked_list *head_pointer=new linked_list;//Í·Ö¸Õë 
+	cin >> length;//è¯»å–é¡ºåºè¡¨é•¿åº¦ 
+	linked_list *head_pointer=new linked_list;//å¤´æŒ‡é’ˆ 
 	if (length<=0)
 	{
 		cout << "Sorry,the length is wrong, can not be established.";
-		delete head_pointer;//Èç¹û³¤¶È²»ºÏ·¨¾ÍÒªÉ¾³ı´´½¨µÄ¶¯Ì¬Í·Ö¸Õë²¢ÇÒ½áÊø³ÌĞò 
+		delete head_pointer;//å¦‚æœé•¿åº¦ä¸åˆæ³•å°±è¦åˆ é™¤åˆ›å»ºçš„åŠ¨æ€å¤´æŒ‡é’ˆå¹¶ä¸”ç»“æŸç¨‹åº 
 		return 0;
 	}
 	int *data_list=new int [length]; 
@@ -29,11 +29,11 @@ int main()
 	{
 		cout << "the " << (i+1) << " data is:";
 		cin >> data_list[i];
-	}//ÊäÈëË³Ğò±íÖĞÔªËØ
-	linked_list *control_pointer=new linked_list;//¹¤¾ßÖ¸Õë 
-	control_pointer=creat_linked_list(data_list[0],head_pointer);//ÒòÎªµÚÒ»¸öËùÒÔÊÇÍ·Ö¸Õë 
+	}//è¾“å…¥é¡ºåºè¡¨ä¸­å…ƒç´ 
+	linked_list *control_pointer=new linked_list;//å·¥å…·æŒ‡é’ˆ 
+	control_pointer=creat_linked_list(data_list[0],head_pointer);//å› ä¸ºç¬¬ä¸€ä¸ªæ‰€ä»¥æ˜¯å¤´æŒ‡é’ˆ 
 	for (int i=1;i<length;++i)
-		control_pointer=creat_linked_list(data_list[i],control_pointer);//´´½¨µ¥Á´±í 
+		control_pointer=creat_linked_list(data_list[i],control_pointer);//åˆ›å»ºå•é“¾è¡¨ 
 	output_linked_list(head_pointer);
 	input_position_output_corresponding_data(head_pointer,length);
 	insert_new_data(head_pointer,length);
@@ -41,7 +41,7 @@ int main()
 	delete_data(head_pointer,length);
 	output_linked_list(head_pointer);	
 	
-	//É¾³ı¶¯Ì¬ÄÚ´æ 
+	//åˆ é™¤åŠ¨æ€å†…å­˜ 
 	control_pointer=head_pointer->next;
 	while(control_pointer!=NULL)
 		control_pointer=delete_linked_list(control_pointer);
@@ -53,7 +53,7 @@ int main()
 
 linked_list * creat_linked_list(int linked_list_data,linked_list *former_pointer)
 {
-	linked_list *p=new linked_list;//pÖ¸ÕëÊÇµ±Ç°Ë³ĞòµÄµØÖ· 
+	linked_list *p=new linked_list;//pæŒ‡é’ˆæ˜¯å½“å‰é¡ºåºçš„åœ°å€ 
 	p->data=linked_list_data;
 	former_pointer->next=p;
 	p->next=NULL;
@@ -83,7 +83,7 @@ void input_position_output_corresponding_data(linked_list *head_pointer,int leng
 	cout << "the location you want to know:";
 	int location_find;
 	cin.sync();
-	cin >> location_find;//²éÕÒÊı¾İµÄÎ»ÖÃ
+	cin >> location_find;//æŸ¥æ‰¾æ•°æ®çš„ä½ç½®
 	if ((location_find>length) || (location_find<=0)) 
 		cout << "sorry,this location has no data." << endl;
 	else
@@ -100,7 +100,7 @@ void insert_new_data(linked_list *head_pointer,int length)
 	cout << "where do you want to insert new data:";
 	int location_insert;
 	cin.sync();
-	cin >> location_insert;//²åÈëĞÂÊı¾İµÄÎ»ÖÃ 
+	cin >> location_insert;//æ’å…¥æ–°æ•°æ®çš„ä½ç½® 
 	if ((location_insert>length+1) || (location_insert<=0))
 	{
 		cout << "sorry,you insert the new data in the wrong place." << endl;
@@ -108,7 +108,7 @@ void insert_new_data(linked_list *head_pointer,int length)
 	}
 	cout << "the data you want to insert:";
 	int data_insert;
-	cin >> data_insert;//²åÈëµÄĞÂÊı¾İ 
+	cin >> data_insert;//æ’å…¥çš„æ–°æ•°æ® 
 	linked_list *p=head_pointer;
 	linked_list *new_insert=new linked_list;
 	new_insert->data=data_insert;
@@ -123,8 +123,8 @@ void delete_data(linked_list *head_pointer,int length)
 	cout << "where do you want to delete data element:";
 	int location_delete;
 	cin.sync();
-	cin >> location_delete;//´ıÉ¾³ıÊı¾İµÄÎ»ÖÃ 
-	if ((location_delete>length+1) || (location_delete<=0))//Èç¹ûÒªÉ¾³ıµÄÎ»ÖÃ´óÓÚ¸ÃË³Ğò±í³¤¶È»òÕßĞ¡ÓÚµÈÓÚ0Ôò±íÃ÷ÊäÈëÓĞÎó 
+	cin >> location_delete;//å¾…åˆ é™¤æ•°æ®çš„ä½ç½® 
+	if ((location_delete>length+1) || (location_delete<=0))//å¦‚æœè¦åˆ é™¤çš„ä½ç½®å¤§äºè¯¥é¡ºåºè¡¨é•¿åº¦æˆ–è€…å°äºç­‰äº0åˆ™è¡¨æ˜è¾“å…¥æœ‰è¯¯ 
 		cout << "sorry,the location of the data you want to delete is wrong." << endl;
 	else
 	{ 
@@ -133,6 +133,6 @@ void delete_data(linked_list *head_pointer,int length)
 			p=p->next;
 		linked_list *delete_pointer=p->next;
 		p->next=p->next->next;
-		delete delete_pointer;//ÒòÎªÉ¾³ı½ÚµãËùÒÔÒªÏÖÔÚ¾ÍÊÍ·ÅÕâ¸ö¶¯Ì¬ÄÚ´æ ²»È»ÕÒ²»µ½¸ÃµØÖ·»áÔì³ÉÏûºÄÄÚ´æÎÊÌâ 
+		delete delete_pointer;//å› ä¸ºåˆ é™¤èŠ‚ç‚¹æ‰€ä»¥è¦ç°åœ¨å°±é‡Šæ”¾è¿™ä¸ªåŠ¨æ€å†…å­˜ ä¸ç„¶æ‰¾ä¸åˆ°è¯¥åœ°å€ä¼šé€ æˆæ¶ˆè€—å†…å­˜é—®é¢˜ 
 	} 
 }
