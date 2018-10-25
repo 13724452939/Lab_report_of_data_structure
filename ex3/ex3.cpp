@@ -24,7 +24,7 @@ int main()
 		cout << "Your input is wrong." << endl;
 		return 0;
 	}
-	cin.get();//去除掉后面的换行符 
+	cin.sync();//去除掉后面的换行符 
 	for (int i=0;i<times;++i)
 	{
 		string str;//输入的测试样本
