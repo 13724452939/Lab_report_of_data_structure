@@ -4,7 +4,7 @@ struct node{
 	char data;
 	node *left_child,*right_child;
 };
-int NUMBER_OF_NEW_NODE=0;//È«¾Ö±äÁ¿ÓÃÀ´Í³¼Æ 
+int NUMBER_OF_NEW_NODE=0;//å…¨å±€å˜é‡ç”¨æ¥ç»Ÿè®¡ 
 node * creat_binary_tree(const int number,node *p,const char data_stored_sequentially[]);
 node * delete_binary_tree(node *p);
 node * pre_order_traverse(node *p);
@@ -28,9 +28,9 @@ int main()
 		if (data_stored_sequentially[i]==' ' || data_stored_sequentially[i]=='	' || data_stored_sequentially[i]=='\n')
 			--i;
 	}
-	node *root=new node;//¶ş²æÊ÷¸ù½Úµã 
+	node *root=new node;//äºŒå‰æ ‘æ ¹èŠ‚ç‚¹ 
 	root=creat_binary_tree(number,root,data_stored_sequentially);
-	delete [] data_stored_sequentially;//ÊÍ·Å´æ·Å½áµãµÄ×Ö·ûÊı×é 
+	delete [] data_stored_sequentially;//é‡Šæ”¾å­˜æ”¾ç»“ç‚¹çš„å­—ç¬¦æ•°ç»„ 
 	cout << endl << "--------------" <<endl;
 	cout << "pre_order : ";
 	root=pre_order_traverse(root);
@@ -40,7 +40,7 @@ int main()
 	cout << endl;
 	cout << "post_order: ";
 	root=post_order_traverse(root);
-	root=delete_binary_tree(root);//É¾³ı¶ş²æÊ÷ ÊÍ·Å¶¯Ì¬¿Õ¼ä 
+	root=delete_binary_tree(root);//åˆ é™¤äºŒå‰æ ‘ é‡Šæ”¾åŠ¨æ€ç©ºé—´ 
 	return 0;
 }
 
