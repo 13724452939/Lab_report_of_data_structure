@@ -1,6 +1,5 @@
 # Lab_report_of_data_structure
-Lab_report_of_data_structure
-incuding questions and code
+Lab_report_of_data_structure incuding questions and code
 数据结构实验 要求和代码
 
 ex1:顺序表实验
